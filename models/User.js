@@ -44,7 +44,6 @@ var UserSchema = new Schema({
 UserSchema.plugin(uniqueValidator, {message: 'This email is already in use.'});
 
 UserSchema.methods.validPassword = function(password) {
-  console.log(password);
   var hash = crypto.pbkdf2Sync(password.toString(), this.salt, 10000, 512, 'sha512').toString('hex');
   return this.hash === hash;
 };

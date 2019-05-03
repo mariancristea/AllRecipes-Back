@@ -49,7 +49,6 @@ router.post('/users/login', function(req, res, next){
   }));
 
   router.get('/users/facebook/redirect', function (req, res, next) {
-    console.log('reach');
     passport.authenticate('facebook', function(err, user, info) {
       if (err) { return next(err); }
       req.logIn(user, function(err) {

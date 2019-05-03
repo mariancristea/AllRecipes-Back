@@ -19,7 +19,6 @@ router.param('recipe', function(req, res, next, slug)  {
 });
 
 router.get('/', auth.optional, function(req, res, next) {
-    console.log('AAAAAAAAAAAAAAA');
     var query = {};
     var limit = 20;
     var offset = 0;

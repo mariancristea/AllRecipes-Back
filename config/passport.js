@@ -21,14 +21,12 @@ passport.use(new LocalStrategy({
   usernameField: 'user[email]',
   passwordField: 'user[password]'
 }, function(email, password, done) {
-  console.log(password);
   User.findOne({"email": email}).then(function(user){
     if(!user) {
       return done(null, false, {errors: {'error': ' email or password is invalid'}});
     }
 
     if(typeof user.salt === 'undefined' && user){
-      console.log('1');
       user.setPassword(password);
       user.save();
     }
@@ -44,7 +42,6 @@ passport.use(new GoogleStrategy({
   clientSecret: configAuth.googleAuth.clientSecret,
   callbackURL: configAuth.googleAuth.callbackURL
 },  function(accessToken, refreshToken, profile, done) {
-  console.log('FACCCCC');
   User.findOne({ $or: [
                         {"google.googleId" : profile.id},
                         {"email": profile.emails[0].value}

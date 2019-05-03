@@ -12,7 +12,7 @@ var fs = require('fs'),
     mongoose = require('mongoose');
     require('./models/User');
 const compression = require('compression');
-//var expressStaticGzip = require("express-static-gzip");
+var expressStaticGzip = require("express-static-gzip");
   
     process.env.SECRET = "secret";
     var sessionOpts = {

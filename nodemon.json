@@ -1,0 +1,7 @@
+{
+    "env": {
+        "MONGO_USER": "marian",
+        "MONGO_PASSWORD": "Progropar12",
+        "MONGO_DEFAULT_DATABASE": "test"
+    }
+}

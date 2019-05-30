@@ -27,7 +27,7 @@ var isProduction = process.env.NODE_ENV === 'production';
 
 var app = express();
 var corsOptions = {
-  origin : 'http://localhost:4200',
+  origin : 'https://recipes-c6f27.firebaseapp.com',
   "methods": "GET,HEAD,PUT,PATCH,POST,DELETE",
   "preflightContinue": false,
   "credentials": true,

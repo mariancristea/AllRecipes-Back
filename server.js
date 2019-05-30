@@ -11,7 +11,6 @@ var fs = require('fs'),
     cookieParser = require('cookie-parser'),
     mongoose = require('mongoose');
     require('./models/User');
-const compression = require('compression');
 var expressStaticGzip = require("express-static-gzip");
   
     process.env.SECRET = "secret";
@@ -46,8 +45,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use(require('method-override')());
-app.use(expressStaticGzip(__dirname + '/dist/AllRecipies'));
-//app.use(cookieParser(sessionOpts.secret))
+
 app.use(session(sessionOpts))
 app.use(passport.initialize())
 
@@ -64,9 +62,7 @@ require('./models/User');
 require('./config/passport');
 
 app.use(require('./routes'));
-app.get('*', (req, res) => {
-  res.sendfile('./dist/AllRecipies/index.html');
-});
+
 /// catch 404 and forward to error handler
 
 var server = app.listen( process.env.PORT || 3000, function(){

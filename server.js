@@ -11,7 +11,6 @@ var fs = require('fs'),
     cookieParser = require('cookie-parser'),
     mongoose = require('mongoose');
     require('./models/User');
-var expressStaticGzip = require("express-static-gzip");
   
     process.env.SECRET = "secret";
     var sessionOpts = {
@@ -27,7 +26,6 @@ var isProduction = process.env.NODE_ENV === 'production';
 
 
 var app = express();
-app.use(compression());
 var corsOptions = {
   origin : 'http://localhost:4200',
   "methods": "GET,HEAD,PUT,PATCH,POST,DELETE",
